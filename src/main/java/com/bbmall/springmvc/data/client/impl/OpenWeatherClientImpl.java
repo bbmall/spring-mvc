@@ -15,17 +15,17 @@ import java.math.BigDecimal;
  */
 @Service
 public class OpenWeatherClientImpl implements OpenWeatherClient {
-	private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private RestTemplate restTemplate;
 
-    public WeatherStatistic getData(String countryName, String cityName){
+    public WeatherStatistic getData(String countryName, String cityName) {
         logger.info("In Openweather client - getData");
         return fakeData(countryName, cityName);
     }
 
-    private WeatherStatistic fakeData(String countryName, String cityName){
+    private WeatherStatistic fakeData(String countryName, String cityName) {
         final int rm = BigDecimal.ROUND_HALF_UP;
         final BigDecimal averageTemperature = new BigDecimal(1 / 3.0).setScale(2, rm);
         final BigDecimal averagePressure = new BigDecimal(1 / 7.0).setScale(2, rm);

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 /**
  * Created by bmalinowski on 10.05.18.
  */
-public class WeatherStatistic implements Serializable{
+public class WeatherStatistic implements Serializable {
 
     private String cityName;
     private String countryCode;

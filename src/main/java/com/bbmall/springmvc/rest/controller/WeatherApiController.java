@@ -21,7 +21,7 @@ public class WeatherApiController {
 
     @GetMapping("/statistics/{countryCode}/{cityName}")
     public ResponseEntity<WeatherStatistic> getStatistics(@PathVariable("countryCode") String countryCode,
-                                                          @PathVariable("cityName") String cityName){
+                                                          @PathVariable("cityName") String cityName) {
         final WeatherStatistic weatherStatistic = weatherService.calculateStatisticForCountryAndCity(countryCode, cityName);
         return ResponseEntity.ok(weatherStatistic);
     }
