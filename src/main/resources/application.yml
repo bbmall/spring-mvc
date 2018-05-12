@@ -1,6 +1,15 @@
 cache.fixed.delay: 3600000
-server.port: 8585
+
+server:
+  port: 8585
 
 openweathermap:
   url: http://samples.openweathermap.org/data/2.5/forecast
   appid: b6907d289e10d714a6e88b30761fae22
+
+---
+
+spring:
+  profiles: test
+
+cache.fixed.delay: 2000
