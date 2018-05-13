@@ -3,9 +3,9 @@ package com.bbmall.springmvc.exceptions;
 /**
  * Created by bmalinowski on 12.05.18.
  */
-public class NoDataFoundException extends RuntimeException {
+public class BadParameterException extends RuntimeException {
 
-    public NoDataFoundException(String message) {
+    public BadParameterException(String message) {
         super(message);
     }
 }

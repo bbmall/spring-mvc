@@ -2,11 +2,13 @@ package com.bbmall.springmvc.client.impl;
 
 import com.bbmall.springmvc.client.OpenWeatherClient;
 import com.bbmall.springmvc.client.model.OWData;
+import com.bbmall.springmvc.exceptions.NoDataFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -26,10 +28,13 @@ public class OpenWeatherClientImpl implements OpenWeatherClient {
     private RestTemplate restTemplate;
 
     public OWData getData(String countryName, String cityName) {
-        logger.info("In Openweather client - getData");
-        final OWData openweatherData = restTemplate.getForObject(getOpenWeatherUrl(countryName, cityName), OWData.class);
-
-        return openweatherData;
+        logger.info("Using external service \"" + openWeatherURL + "\"");
+        try {
+            final OWData openweatherData = restTemplate.getForObject(getOpenWeatherUrl(countryName, cityName), OWData.class);
+            return openweatherData;
+        } catch (RestClientException e) {
+            throw new NoDataFoundException(e.getMessage());
+        }
     }
 
     private String getOpenWeatherUrl(String countryName, String cityName) {

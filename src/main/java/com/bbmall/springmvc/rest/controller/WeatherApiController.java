@@ -5,8 +5,8 @@ import com.bbmall.springmvc.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -19,9 +19,9 @@ public class WeatherApiController {
     @Autowired
     private WeatherService weatherService;
 
-    @GetMapping("/statistics/{countryCode}/{cityName}")
-    public ResponseEntity<WeatherStatistic> getStatistics(@PathVariable("countryCode") String countryCode,
-                                                          @PathVariable("cityName") String cityName) {
+    @GetMapping("/avg")
+    public ResponseEntity<WeatherStatistic> getStatistics(@RequestParam(required = false) String countryCode,
+                                                          @RequestParam(required = false) String cityName) {
         final WeatherStatistic weatherStatistic = weatherService.calculateStatisticForCountryAndCity(countryCode, cityName);
         return ResponseEntity.ok(weatherStatistic);
     }

@@ -1,5 +1,6 @@
-package com.bbmall.springmvc
+package com.bbmall.springmvc.unit
 
+import com.bbmall.springmvc.CommonMockUtils
 import com.bbmall.springmvc.client.OpenWeatherClient
 import com.bbmall.springmvc.data.WeatherStatistic
 import com.bbmall.springmvc.service.WeatherService

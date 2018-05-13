@@ -42,4 +42,12 @@ public class City implements Serializable {
     public void setCoord(Coordinate coord) {
         this.coord = coord;
     }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

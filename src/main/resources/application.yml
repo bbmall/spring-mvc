@@ -4,6 +4,7 @@ server:
   port: 8585
 
 openweathermap:
+#  url: http://samples.opdsenweathermap.org/data/2.5/forecast
   url: http://samples.openweathermap.org/data/2.5/forecast
   appid: b6907d289e10d714a6e88b30761fae22
 
@@ -11,5 +12,6 @@ openweathermap:
 
 spring:
   profiles: test
+  port: 8686
 
 cache.fixed.delay: 2000
