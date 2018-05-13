@@ -4,8 +4,8 @@ server:
   port: 8585
 
 openweathermap:
-#  url: http://samples.opdsenweathermap.org/data/2.5/forecast
-  url: http://samples.openweathermap.org/data/2.5/forecast
+  url: http://samples.opdsenweathermap.org/data/2.5/forecast
+#  url: http://api.openweathermap.org/data/2.5/weather
   appid: b6907d289e10d714a6e88b30761fae22
 
 ---

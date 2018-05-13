@@ -6,7 +6,6 @@ import com.bbmall.springmvc.client.OpenWeatherClient
 import com.bbmall.springmvc.exceptions.NoDataFoundException
 import com.bbmall.springmvc.service.WeatherService
 import groovyx.net.http.ContentType
-import groovyx.net.http.HttpResponseException
 import groovyx.net.http.RESTClient
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -139,6 +138,7 @@ class WeatherControllerSpec extends Specification {
         1 * openWeatherClientMock.getData(_, _) >> CommonMockUtils.getOWDataMock()
 
         when: "second call after cache evicted"
+        //TODO: replace with sth that simulate time passed
         Thread.sleep(5000)
         weatherService.calculateStatisticForCountryAndCity(country, city)
         then: "get new client data"
