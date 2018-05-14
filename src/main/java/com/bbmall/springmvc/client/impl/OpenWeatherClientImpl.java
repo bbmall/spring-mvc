@@ -32,8 +32,7 @@ public class OpenWeatherClientImpl implements OpenWeatherClient {
     public OWData getData(String countryName, String cityName) {
         logger.info("Using external service \"" + openWeatherURL + "\"");
         try {
-            final OWData openweatherData = restTemplate.getForObject(getOpenWeatherUrl(countryName, cityName), OWData.class);
-            return openweatherData;
+            return restTemplate.getForObject(getOpenWeatherUrl(countryName, cityName), OWData.class);
         } catch (HttpClientErrorException e) {
             throw new ExternalServiceException(e.getStatusCode(), e.getMessage());
         } catch (RestClientException e) {
